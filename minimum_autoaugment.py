@@ -1,3 +1,5 @@
+from random import randint
+
 import chainer
 import optuna
 from chainer import functions as F
@@ -40,10 +42,10 @@ class Preprocess(chainer.dataset.DatasetMixin):
         image, label = self.data[i]
         image = image.reshape([28, 28])
 
-        if self.v_flip:
+        if self.v_flip and randint(0, 1):
             image = image[::-1]
 
-        if self.h_flip:
+        if self.h_flip and randint(0, 1):
             image = image[:, ::-1]
 
         if self.debug:
@@ -77,7 +79,7 @@ def objective(trial):
             "epoch", "main/loss", "validation/main/loss", "main/accuracy",
             "validation/main/accuracy"
         ]),
-        trigger=(10, 'iteration'))
+        trigger=(1, 'epoch'))
     trainer.extend(log_report_extension)
 
     trainer.run()

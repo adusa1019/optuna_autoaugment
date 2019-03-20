@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+optuna = "*"
+chainer = "*"
+pillow = "*"
+
+[dev-packages]
+"flake8" = "*"
+yapf = "*"
+pytest = "*"
+rope = "*"
+
+[requires]
+python_version = "3.7"

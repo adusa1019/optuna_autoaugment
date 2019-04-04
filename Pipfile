@@ -7,6 +7,7 @@ name = "pypi"
 optuna = "*"
 chainer = "*"
 pillow = "*"
+pandas = "*"
 
 [dev-packages]
 "flake8" = "*"
